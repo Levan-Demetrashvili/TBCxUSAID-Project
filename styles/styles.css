@@ -105,12 +105,60 @@ header .header-nav .header-items a:hover {
 
 .courses-container .courses {
   display: grid;
-
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px 45px;
 }
 
+.courses-container .courses .course {
+  border: 1px solid #555555;
+  border-radius: 6px;
+}
+
+.courses-container .courses .course .text-content {
+  padding-left: 22px;
+}
 .courses-container h6 {
   font-size: 2.4rem;
   color: #dbdbdb;
   margin-block: 3.4rem 6.7rem;
+}
+.courses-container .course > img {
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 34px;
+}
+
+.courses-container .course h5 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #f4f4f4;
+  margin-bottom: 25px;
+}
+.courses-container .course p {
+  font-size: 14px;
+  color: #f4f4f4;
+  margin-bottom: 59px;
+}
+
+.courses-container .course .details {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 21px;
+  gap: 10px;
+}
+.courses-container .course .details a {
+  font-size: 16px;
+  color: #00aeef;
+  text-decoration: none;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+.courses-container .course .details a:hover {
+  color: #0986b3;
+}
+
+:focus {
+  box-shadow: 0 0 0 1px #ffffff, 0 0 0 3px #116dff !important;
+  z-index: 1;
+  padding: 3px;
 }
