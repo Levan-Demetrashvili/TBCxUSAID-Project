@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   color: #f4f4f4;
 }
 html {
@@ -19,7 +19,7 @@ header {
   width: 100%;
   background-color: #1a1e1f;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 22px 0px;
   padding-inline: 10.5rem;
@@ -99,8 +99,9 @@ header .header-nav .header-items a:hover {
 
 /** Courses **/
 
-.courses-container {
-  padding-inline: 10.5rem;
+.courses-flex {
+  display: flex;
+  justify-content: center;
 }
 
 .courses-container .courses {
@@ -110,8 +111,10 @@ header .header-nav .header-items a:hover {
 }
 
 .courses-container .courses .course {
+  width: 300px;
   border: 1px solid #555555;
   border-radius: 6px;
+  height: min-content;
 }
 
 .courses-container .courses .course .text-content {
@@ -123,6 +126,7 @@ header .header-nav .header-items a:hover {
   margin-block: 3.4rem 6.7rem;
 }
 .courses-container .course > img {
+  width: 100%;
   height: 150px;
   object-fit: cover;
   margin-bottom: 34px;
