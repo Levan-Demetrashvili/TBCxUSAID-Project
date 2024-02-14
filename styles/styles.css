@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: sans-serif;
   color: #f4f4f4;
 }
 html {
@@ -19,13 +19,15 @@ header {
   width: 100%;
   background-color: #1a1e1f;
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  justify-content: space-between;
   padding: 22px 0px;
-  padding-inline: 10.5rem;
   transition: all 0.3s ease;
 }
 
+header img {
+  margin-left: calc((100% - 980px) / 2);
+}
 header.active-header {
   position: sticky;
   top: 0;
@@ -36,6 +38,7 @@ header .header-nav ul {
   display: flex;
   gap: 40px;
   list-style: none;
+  margin-left: calc((100% - 980px) / 2);
 }
 header .header-nav .header-items a {
   font-size: 1.4rem;
@@ -55,16 +58,14 @@ header .header-nav .header-items a:hover {
 .cover {
   background: url('../assets/images/cover.webp') no-repeat center/cover;
   height: 35.2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   gap: 15px;
-  padding-inline: 10.5rem;
+  padding: 96px 0px 0px calc((100% - 980px) / 2);
 }
 
 .cover h3:first-child {
   font-weight: 900;
   font-size: 4.2rem;
+  margin-bottom: 10px;
 }
 .cover h3:last-child {
   font-weight: 900;
@@ -75,13 +76,14 @@ header .header-nav .header-items a:hover {
 
 .intro {
   background-color: #2b2b2b;
-  padding: 56px 10.5rem;
+  padding: 56px 0px;
 }
 
 .intro h1 {
+  width: 980px;
   font-size: 2.8rem;
   font-weight: 400;
-  margin-bottom: 40px;
+  margin: 0 0 43px calc((100% - 980px) / 2);
 }
 
 .intro a {
@@ -91,6 +93,7 @@ header .header-nav .header-items a:hover {
   cursor: pointer;
   font-weight: 700;
   transition: color 0.4s ease-in-out;
+  margin-left: calc((100% - 980px) / 2);
 }
 
 .intro a:hover {
@@ -102,6 +105,7 @@ header .header-nav .header-items a:hover {
 .courses-flex {
   display: flex;
   justify-content: center;
+  margin-bottom: 58px;
 }
 
 .courses-container .courses {
@@ -165,4 +169,17 @@ header .header-nav .header-items a:hover {
   box-shadow: 0 0 0 1px #ffffff, 0 0 0 3px #116dff !important;
   z-index: 1;
   padding: 3px;
+}
+
+/** Slider **/
+
+.slider {
+  background-color: #2b2b2b;
+  padding: 34px 0 36px calc((100% - 980px) / 2);
+}
+
+.slider h3 {
+  font-size: 2.4rem;
+  font-weight: 400;
+  margin-bottom: 31px;
 }
