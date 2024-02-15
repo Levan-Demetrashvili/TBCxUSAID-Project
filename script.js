@@ -1,5 +1,7 @@
 const header = document.querySelector('header');
 const headerMask = document.querySelector('.header-mask');
+const sliderEl = document.querySelector('.slider');
+const slides = document.querySelectorAll('.slide');
 
 //*  Sticky navigation
 const headerHeight = header.getBoundingClientRect().height;
@@ -17,3 +19,5 @@ const headerobserver = new IntersectionObserver(headerCallback, {
 });
 
 headerobserver.observe(headerMask);
+
+//* Slider
