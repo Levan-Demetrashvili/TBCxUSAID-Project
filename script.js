@@ -1,4 +1,4 @@
-//* Variables
+//^ Variables
 const header = document.querySelector('header');
 const headerMask = document.querySelector('.header-mask');
 //
@@ -9,7 +9,7 @@ const prevBtn = document.querySelector('.prev-btn');
 const dotsContainer = document.querySelector('.dots');
 const dots = document.querySelectorAll('.dot');
 
-//*  Sticky navigation
+//^  Sticky navigation
 const headerCallback = function (entries) {
   const [entry] = entries;
   if (window.scrollY > 0) header.classList.add('active-header');
@@ -23,15 +23,16 @@ const headerobserver = new IntersectionObserver(headerCallback, {
 
 headerobserver.observe(headerMask);
 
-//* Slider
+//^ Slider
 
 let curSlide = 0;
 const maxSlide = slides.length;
 
+//* Functions
 function appearSlide(slide) {
   slides.forEach((s, i) => {
     if (i === slide) {
-      s.style.position = 'static';
+      s.style.position = 'relative';
       dots[slide].style.backgroundColor = '#fff';
     } else {
       s.style.position = 'absolute';
@@ -45,21 +46,41 @@ function appearSlide(slide) {
   }, 200);
 }
 
-nextBtn.addEventListener('click', function () {
+function nextSlide() {
   curSlide === maxSlide - 1 ? (curSlide = 0) : curSlide++;
-
   appearSlide(curSlide);
-});
-
-prevBtn.addEventListener('click', function () {
+}
+function prevSlide() {
   curSlide === 0 ? (curSlide = maxSlide - 1) : curSlide--;
-
   appearSlide(curSlide);
-});
+}
+
+nextBtn.addEventListener('click', nextSlide);
+prevBtn.addEventListener('click', prevSlide);
 
 dotsContainer.addEventListener('click', function (e) {
   if (!e.target.classList.contains('dot')) return;
   const slide = +e.target.dataset.slide;
-
   appearSlide(slide);
 });
+
+//*  Auto slider
+
+function autoSliding(entries) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) return;
+
+  const slide = entry.target;
+  slide.addEventListener('mouseleave', function () {
+    const sliderInterval = setInterval(nextSlide, 5000);
+  });
+  slide.addEventListener('mouseenter', function () {
+    clearInterval(sliderInterval);
+  });
+}
+const slideObserver = new IntersectionObserver(autoSliding, {
+  root: null,
+  threshold: 0,
+});
+
+slideObserver.observe(slides[0]);

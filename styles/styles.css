@@ -11,6 +11,7 @@ html {
 }
 body {
   background-color: #161616;
+  height: 1000vh;
 }
 
 /**  HEADER **/
@@ -205,7 +206,8 @@ header .header-nav .header-items a:hover {
 }
 .slider .slide--active {
   opacity: 1;
-  position: static;
+  position: relative;
+  z-index: 22222;
 }
 
 .slider .slide .img-container {
