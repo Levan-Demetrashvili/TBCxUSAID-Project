@@ -1,8 +1,11 @@
+'use strict';
+
 //^ Variables
 const header = document.querySelector('header');
 const headerMask = document.querySelector('.header-mask');
 //
 const sliderEl = document.querySelector('.slider');
+const slidesMask = document.querySelector('.slides-mask');
 const slides = document.querySelectorAll('.slide');
 const nextBtn = document.querySelector('.next-btn');
 const prevBtn = document.querySelector('.prev-btn');
@@ -55,12 +58,33 @@ function prevSlide() {
   appearSlide(curSlide);
 }
 
-nextBtn.addEventListener('click', nextSlide);
-prevBtn.addEventListener('click', prevSlide);
+function Delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+let clickable = true;
+nextBtn.addEventListener('click', async function () {
+  if (clickable) {
+    nextSlide();
+    clickable = false;
+    await Delay(1000);
+    clickable = true;
+  }
+});
+
+prevBtn.addEventListener('click', async function () {
+  if (clickable) {
+    prevSlide();
+    clickable = false;
+    await Delay(1000);
+    clickable = true;
+  }
+});
 
 dotsContainer.addEventListener('click', function (e) {
   if (!e.target.classList.contains('dot')) return;
   const slide = +e.target.dataset.slide;
+
   appearSlide(slide);
 });
 
@@ -71,10 +95,13 @@ function autoSliding(entries) {
   if (!entry.isIntersecting) return;
 
   const slide = entry.target;
-  slide.addEventListener('mouseleave', function () {
-    const sliderInterval = setInterval(nextSlide, 5000);
+  let sliderInterval;
+
+  slidesMask.addEventListener('mouseleave', function (e) {
+    if (e.relatedTarget.closest('.slider-btn') || e.relatedTarget.closest('.dot')) return;
+    sliderInterval = setInterval(nextSlide, 5000);
   });
-  slide.addEventListener('mouseenter', function () {
+  slidesMask.addEventListener('mouseenter', function () {
     clearInterval(sliderInterval);
   });
 }
@@ -83,4 +110,4 @@ const slideObserver = new IntersectionObserver(autoSliding, {
   threshold: 0,
 });
 
-slideObserver.observe(slides[0]);
+slideObserver.observe(slidesMask);
