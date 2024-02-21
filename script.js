@@ -12,6 +12,11 @@ const prevBtn = document.querySelector('.prev-btn');
 const dotsContainer = document.querySelector('.dots');
 const dots = document.querySelectorAll('.dot');
 
+//^ Before load
+// window.addEventListener('beforeunload', function () {
+//   window.scrollTo(0, 0);
+// });
+
 //^  Sticky navigation
 const headerCallback = function (entries) {
   const [entry] = entries;
@@ -81,11 +86,17 @@ prevBtn.addEventListener('click', async function () {
   }
 });
 
-dotsContainer.addEventListener('click', function (e) {
+dotsContainer.addEventListener('click', async function (e) {
   if (!e.target.classList.contains('dot')) return;
+
   const slide = +e.target.dataset.slide;
 
-  appearSlide(slide);
+  if (clickable) {
+    appearSlide(slide);
+    clickable = false;
+    await Delay(1000);
+    clickable = true;
+  }
 });
 
 //*  Auto slider
@@ -94,14 +105,13 @@ function autoSliding(entries) {
   const [entry] = entries;
   if (!entry.isIntersecting) return;
 
-  const slide = entry.target;
   let sliderInterval;
 
   slidesMask.addEventListener('mouseleave', function (e) {
     if (e.relatedTarget.closest('.slider-btn') || e.relatedTarget.closest('.dot')) return;
     sliderInterval = setInterval(nextSlide, 5000);
   });
-  slidesMask.addEventListener('mouseenter', function () {
+  slidesMask.addEventListener('mouseenter', function (e) {
     clearInterval(sliderInterval);
   });
 }
@@ -111,3 +121,19 @@ const slideObserver = new IntersectionObserver(autoSliding, {
 });
 
 slideObserver.observe(slidesMask);
+
+// TODO: FAQ
+
+const faqsCont = document.querySelector('.faqs');
+
+faqsCont.addEventListener('click', function (e) {
+  const faqEl = e.target.closest('.faq');
+  if (!faqEl) return;
+
+  faqEl.classList.toggle('faq--active');
+  const faqMainHeight = parseFloat(window.getComputedStyle(faqEl.querySelector('.faq-main')).height);
+  const faqAccordionHeight = parseFloat(window.getComputedStyle(faqEl.querySelector('.accordion-items')).height);
+  faqEl.style.height = `${faqMainHeight + faqAccordionHeight}px`;
+
+  if (!faqEl.classList.contains('faq--active')) faqEl.style.height = '80px';
+});

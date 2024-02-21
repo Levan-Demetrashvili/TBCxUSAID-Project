@@ -28,6 +28,8 @@ header {
 }
 
 header img {
+  width: 182px;
+  height: 40px;
   margin-left: calc((100% - 980px) / 2);
 }
 header.active-header {
@@ -99,7 +101,8 @@ header .header-nav .header-items a:hover {
   margin-left: calc((100% - 980px) / 2);
 }
 
-.intro a:hover {
+.intro a:hover,
+.faqs-title a:hover {
   color: gray;
 }
 
@@ -281,4 +284,79 @@ header .header-nav .header-items a:hover {
   background-color: #e8e6e6;
   cursor: pointer;
   z-index: 2;
+}
+
+/** FAQ**/
+.faqs-container {
+  padding: 30px 40px;
+  margin: 75px calc((100% - 980px) * 0.5) 32px;
+}
+.faqs-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.faqs-title h2 {
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.2em;
+  margin-bottom: 20px;
+}
+
+.faqs-title a {
+  font-size: 2rem;
+  line-height: 1.4em;
+  color: #00aef3;
+
+  text-decoration: none;
+  transition: color 0.4s ease 0s;
+}
+
+.faq {
+  border-bottom: 1px solid #353131;
+  height: 80px;
+  transition: height 0.1s ease-in;
+}
+
+.faq .faq-main {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+  cursor: pointer;
+}
+.faq .faq-main h3 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.2em;
+  min-height: 5rem;
+  display: flex;
+  align-items: center;
+}
+
+.faq .accordion-items {
+  padding: 0 2px 3rem;
+  display: none;
+}
+
+p {
+  font-size: 1.4rem;
+  line-height: 2;
+  padding-block: 2px 3px;
+}
+
+/** Active faq **/
+
+.faq.faq--active .accordion-items {
+  display: block;
+}
+
+.faq .up-arrow {
+  display: none;
+}
+
+.faq.faq--active .down-arrow {
+  display: none;
+}
+.faq.faq--active .up-arrow {
+  display: block;
 }
