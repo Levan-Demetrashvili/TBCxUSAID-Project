@@ -11,7 +11,6 @@ html {
 }
 body {
   background-color: #161616;
-  height: 1000vh;
 }
 
 /**  HEADER **/
@@ -338,10 +337,20 @@ header .header-nav .header-items a:hover {
   display: none;
 }
 
-p {
+.faq .accordion-items h4,
+.faq .accordion-items p {
   font-size: 1.4rem;
+  font-weight: 400;
   line-height: 2;
   padding-block: 2px 3px;
+}
+
+.accordion-items .text-wrapper {
+  margin: 33px 0 33px 2.1rem;
+}
+
+.text-wrapper span {
+  font-weight: 700;
 }
 
 /** Active faq **/
@@ -359,4 +368,68 @@ p {
 }
 .faq.faq--active .up-arrow {
   display: block;
+}
+
+/** Footer **/
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: #1a1e1f;
+  padding: 64px calc((100% - 980px) / 2) 43px;
+}
+
+footer *:focus {
+  box-shadow: 0 0 0 !important;
+  padding: 0px;
+}
+
+footer .tbc-terms img {
+  width: 106px;
+  height: 30px;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+footer .tbc-terms {
+  font-size: 14px;
+  line-height: 164%;
+}
+
+footer .tbc-terms .copyright {
+  margin-block: 27px 18px;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.contact button {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.contact button img {
+  width: 39px;
+}
+
+#fb-btn {
+  margin-right: 10px;
+}
+
+.contact .send-us {
+  background-color: #00aef3;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  transition: border-color 0.4s ease 0s, background-color 0.4s ease 0s;
+
+  font-size: 16px;
+  line-height: 1.6em;
+  padding: 7px 40px;
 }
