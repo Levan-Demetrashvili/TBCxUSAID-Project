@@ -100,20 +100,25 @@ dotsContainer.addEventListener('click', async function (e) {
 });
 
 //*  Auto slider
+let sliderInterval;
+function startAutoSlider(e) {
+  if (e.relatedTarget.closest('.slider-btn') || e.relatedTarget.closest('.dot')) return;
+  sliderInterval = setInterval(nextSlide, 5000);
+}
+function stopAutoSlider() {
+  clearInterval(sliderInterval);
+}
 
 function autoSliding(entries) {
   const [entry] = entries;
-  if (!entry.isIntersecting) return;
 
-  let sliderInterval;
+  if (!entry.isIntersecting) {
+    removeEventListener('mouseleave', startAutoSlider);
+    return;
+  }
 
-  slidesMask.addEventListener('mouseleave', function (e) {
-    if (e.relatedTarget.closest('.slider-btn') || e.relatedTarget.closest('.dot')) return;
-    sliderInterval = setInterval(nextSlide, 5000);
-  });
-  slidesMask.addEventListener('mouseenter', function (e) {
-    clearInterval(sliderInterval);
-  });
+  slidesMask.addEventListener('mouseleave', startAutoSlider);
+  slidesMask.addEventListener('mouseenter', stopAutoSlider);
 }
 const slideObserver = new IntersectionObserver(autoSliding, {
   root: null,
@@ -122,7 +127,7 @@ const slideObserver = new IntersectionObserver(autoSliding, {
 
 slideObserver.observe(slidesMask);
 
-// TODO: FAQ
+//* FAQ
 
 const faqsCont = document.querySelector('.faqs');
 
