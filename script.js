@@ -12,6 +12,10 @@ const prevBtn = document.querySelector('.prev-btn');
 const dotsContainer = document.querySelector('.dots');
 const dots = document.querySelectorAll('.dot');
 
+const faqsCont = document.querySelector('.faqs');
+
+const rulesBox = document.querySelector('.rules');
+
 //^ Before load
 // window.addEventListener('beforeunload', function () {
 //   window.scrollTo(0, 0);
@@ -127,9 +131,7 @@ const slideObserver = new IntersectionObserver(autoSliding, {
 
 slideObserver.observe(slidesMask);
 
-//* FAQ
-
-const faqsCont = document.querySelector('.faqs');
+//^ FAQ
 
 faqsCont.addEventListener('click', function (e) {
   const faqEl = e.target.closest('.faq');
@@ -142,3 +144,27 @@ faqsCont.addEventListener('click', function (e) {
 
   if (!faqEl.classList.contains('faq--active')) faqEl.style.height = '80px';
 });
+
+//^ Rules overlay
+
+const rulesBtn = document.querySelector('.terms');
+const closeModalBtn = document.querySelector('.close-modal');
+const overlay = document.querySelector('.overlay');
+
+//** Functions
+
+function openModal() {
+  rulesBox.classList.remove('hidden--rules');
+  overlay.classList.remove('hidden--overlay');
+}
+
+function closeModal() {
+  rulesBox.classList.add('hidden--rules');
+  overlay.classList.add('hidden--overlay');
+}
+
+//* Handlers
+rulesBtn.addEventListener('click', openModal);
+closeModalBtn.addEventListener('click', closeModal);
+document.addEventListener('keydown', e => e.key === 'Escape' && closeModal());
+overlay.addEventListener('click', closeModal);
