@@ -145,10 +145,11 @@ faqsCont.addEventListener('click', function (e) {
   if (!faqEl.classList.contains('faq--active')) faqEl.style.height = '80px';
 });
 
-//^ Rules overlay
+//^ Rules panel
 
 const rulesBtn = document.querySelector('.terms');
-const closeModalBtn = document.querySelector('.close-modal');
+const closeModalEl = document.querySelector('.close-modal');
+const closeModalBtn = document.querySelector('.close-modal-btn');
 const overlay = document.querySelector('.overlay');
 
 //** Functions
@@ -168,3 +169,5 @@ rulesBtn.addEventListener('click', openModal);
 closeModalBtn.addEventListener('click', closeModal);
 document.addEventListener('keydown', e => e.key === 'Escape' && closeModal());
 overlay.addEventListener('click', closeModal);
+
+closeModalBtn.addEventListener('click', closeModal);

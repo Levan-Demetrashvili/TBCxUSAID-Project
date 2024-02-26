@@ -447,8 +447,8 @@ footer .tbc-terms .copyright {
 }
 
 .contact .send-us:hover {
-  color: rgb(53, 49, 49);
-  background-color: rgb(162, 162, 162);
+  color: #000;
+  background-color: rgb(213, 213, 213);
 }
 
 /** RULES **/
@@ -499,9 +499,22 @@ footer .tbc-terms .copyright {
   cursor: pointer;
 }
 
-.hidden--rules {
-  transform: translateX(100%);
+.rules .close-modal-btn {
+  margin-top: 19.6px;
+  height: 60px;
+
+  font-size: 16px;
+  line-height: 1.4em;
+  color: #1c1c1c;
+  background-color: #dbdbdb;
+
+  border-radius: 4px;
+  border: 0;
+
+  cursor: pointer;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
+
 .overlay {
   position: fixed;
   top: 0;
@@ -512,6 +525,15 @@ footer .tbc-terms .copyright {
   z-index: 9;
 }
 
+.hidden--rules {
+  transform: translateX(100%);
+}
+
 .hidden--overlay {
   display: none;
+}
+
+.rules .close-modal-btn:hover {
+  color: #fff;
+  background-color: rgb(0, 174, 243);
 }
