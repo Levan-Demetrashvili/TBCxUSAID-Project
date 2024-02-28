@@ -15,6 +15,10 @@ const dots = document.querySelectorAll('.dot');
 const faqsCont = document.querySelector('.faqs');
 
 const rulesBox = document.querySelector('.rules');
+const rulesBtn = document.querySelector('.terms');
+const closeModalEl = document.querySelector('.close-modal');
+const closeModalBtn = document.querySelector('.close-modal-btn');
+const overlay = document.querySelector('.overlay');
 
 //^ Before load
 // window.addEventListener('beforeunload', function () {
@@ -147,11 +151,6 @@ faqsCont.addEventListener('click', function (e) {
 
 //^ Rules panel
 
-const rulesBtn = document.querySelector('.terms');
-const closeModalEl = document.querySelector('.close-modal');
-const closeModalBtn = document.querySelector('.close-modal-btn');
-const overlay = document.querySelector('.overlay');
-
 //** Functions
 
 function openModal() {
@@ -166,8 +165,19 @@ function closeModal() {
 
 //* Handlers
 rulesBtn.addEventListener('click', openModal);
-closeModalBtn.addEventListener('click', closeModal);
+closeModalEl.addEventListener('click', closeModal);
 document.addEventListener('keydown', e => e.key === 'Escape' && closeModal());
 overlay.addEventListener('click', closeModal);
-
 closeModalBtn.addEventListener('click', closeModal);
+
+//! For Responsive
+
+// TODO: Burger menu
+
+const menuEl = document.querySelector('.menu-item');
+const headerItems = document.querySelectorAll('.header-items');
+let itemsTranslatePX = 1000;
+menuEl.addEventListener('click', function () {
+  itemsTranslatePX = itemsTranslatePX === 1000 ? 0 : 1000;
+  headerItems.forEach(item => (item.style.transform = `translateY(${itemsTranslatePX}px)`));
+});
