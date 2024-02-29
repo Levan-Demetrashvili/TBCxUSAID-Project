@@ -176,7 +176,7 @@ header .header-nav .header-items a:hover {
 }
 
 :focus {
-  box-shadow: 0 0 0 1px #ffffff, 0 0 0 3px #116dff !important;
+  box-shadow: 0 0 0 1px #ffffff, 0 0 0 3px #116dff;
   z-index: 1;
   padding: 3px;
 }
@@ -277,7 +277,6 @@ header .header-nav .header-items a:hover {
   display: flex;
   justify-content: center;
   gap: 12px;
-  padding-top: -50px;
 }
 
 .slider .dots ul li {
@@ -580,20 +579,56 @@ footer .tbc-terms .copyright {
   .slider .slide .img-container {
     width: 170px;
   }
+  header .header-nav {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+  }
 
   header .header-nav ul {
-    gap: 20px;
+    visibility: visible;
+    position: absolute;
+    width: 150px;
+    right: 0;
+    padding-inline: 0;
+    gap: 0;
+    margin-top: 20px;
+    flex-direction: column;
+    background-color: #1a1e1f;
+    transform: translateX(0);
+    transition: transform 0.7s ease, width 0.7s ease;
   }
   .header-items {
-    transform: translateY(200px);
-    transition: transform 0.4s linear;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #ffffff71;
+    cursor: pointer;
   }
+
+  .header-items:last-child {
+    border-bottom: 0;
+  }
+
   .menu-item {
     display: block;
+    background-color: transparent;
+    padding-inline: 50px;
+    border: 0;
+  }
+
+  .menu-item:focus {
+    box-shadow: 0 0 0 #fff !important;
   }
 
   .menu-item i {
     cursor: pointer;
     font-size: 20px;
+  }
+
+  .hidden-list__responsive {
+    transform: translateX(100%) !important;
+    width: 0 !important;
   }
 }

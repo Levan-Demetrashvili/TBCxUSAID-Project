@@ -172,12 +172,12 @@ closeModalBtn.addEventListener('click', closeModal);
 
 //! For Responsive
 
-// TODO: Burger menu
+//^ drop-down menu
 
 const menuEl = document.querySelector('.menu-item');
+const headerItemsList = document.querySelector('.hidden-list__responsive');
 const headerItems = document.querySelectorAll('.header-items');
-let itemsTranslatePX = 1000;
+
 menuEl.addEventListener('click', function () {
-  itemsTranslatePX = itemsTranslatePX === 1000 ? 0 : 1000;
-  headerItems.forEach(item => (item.style.transform = `translateY(${itemsTranslatePX}px)`));
+  headerItemsList.classList.toggle('hidden-list__responsive');
 });
