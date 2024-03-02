@@ -1,0 +1,135 @@
+@media only screen and (max-width: 992px) {
+  header img,
+  header .header-nav ul,
+  .cover,
+  .intro h1,
+  .intro a,
+  .slider h3,
+  .courses-flex,
+  .slider .slide,
+  .faqs-container,
+  footer {
+    margin-inline: 0;
+    padding-inline: 50px;
+  }
+  .slider .slide .img-container {
+    width: 200px;
+  }
+  .intro h1 {
+    width: auto;
+  }
+
+  .courses-container .courses .course {
+    width: auto;
+  }
+  .courses-container .courses {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  html {
+    font-size: 50%;
+  }
+  .slider .slide .img-container {
+    width: 170px;
+  }
+  header .header-nav {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  header .header-nav ul {
+    visibility: visible;
+    position: absolute;
+    width: 150px;
+    right: 0;
+    padding-inline: 0;
+    gap: 0;
+    margin-top: 30px;
+    flex-direction: column;
+    background-color: #1a1e1f;
+    transition: transform 0.7s ease, width 0.7s ease;
+  }
+  .header-items {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #ffffff71;
+    cursor: pointer;
+  }
+
+  .header-items:last-child {
+    border-bottom: 0;
+  }
+
+  .menu-item {
+    display: block;
+    background-color: green;
+    margin-inline: 50px;
+    border: 0;
+    padding: 10px 20px;
+  }
+
+  .menu-item:focus {
+    box-shadow: 0 0 0 #fff !important;
+  }
+
+  .hidden-list__responsive {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 658px) {
+  .slider .slide .img-container {
+    width: 30%;
+  }
+  header img,
+  header .header-nav ul,
+  .cover,
+  .intro h1,
+  .intro a,
+  .slider h3,
+  .courses-flex,
+  .slider .slide,
+  .faqs-container,
+  footer {
+    padding-inline: 10px;
+  }
+
+  .courses-flex {
+    display: block;
+    padding-inline: 80px;
+  }
+
+  .courses-container .courses {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .slider .slide {
+    flex-direction: column;
+  }
+
+  .slider .dots ul {
+    margin-top: 50px;
+  }
+
+  .terms {
+    pointer-events: none;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .courses-flex {
+    padding-inline: 00px;
+  }
+  .menu-item {
+    margin-inline: 0 20px;
+  }
+  header .header-nav ul {
+    width: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

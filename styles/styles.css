@@ -46,7 +46,7 @@ header .header-nav ul {
   overflow: hidden;
 }
 header .header-nav .header-items a {
-  font-size: 1.4rem;
+  font-size: 14px;
   text-decoration: none;
   font-weight: 400;
   transition: color 0.2s ease-in;
@@ -488,9 +488,11 @@ footer .tbc-terms .copyright {
 
 .rules .header {
   font-size: 22px;
+  font-weight: 700;
 }
 
 .rules .sub-header {
+  font-weight: 700;
   margin-top: 19.6px;
   font-size: 16px;
 }
@@ -543,92 +545,4 @@ footer .tbc-terms .copyright {
 .rules .close-modal-btn:hover {
   color: #fff;
   background-color: rgb(0, 174, 243);
-}
-
-@media only screen and (max-width: 992px) {
-  html {
-    font-size: 50%;
-  }
-  header img,
-  header .header-nav ul,
-  .cover,
-  .intro h1,
-  .intro a,
-  .slider h3,
-  .courses-flex,
-  .slider .slide,
-  .faqs-container,
-  footer {
-    margin-inline: 0;
-    padding-inline: 50px;
-  }
-
-  .intro h1 {
-    width: auto;
-  }
-
-  .courses-container .courses .course {
-    width: auto;
-  }
-  .courses-container .courses {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .slider .slide .img-container {
-    width: 170px;
-  }
-  header .header-nav {
-    position: relative;
-    display: flex;
-    justify-content: flex-start;
-  }
-
-  header .header-nav ul {
-    visibility: visible;
-    position: absolute;
-    width: 150px;
-    right: 0;
-    padding-inline: 0;
-    gap: 0;
-    margin-top: 20px;
-    flex-direction: column;
-    background-color: #1a1e1f;
-    transform: translateX(0);
-    transition: transform 0.7s ease, width 0.7s ease;
-  }
-  .header-items {
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 1px solid #ffffff71;
-    cursor: pointer;
-  }
-
-  .header-items:last-child {
-    border-bottom: 0;
-  }
-
-  .menu-item {
-    display: block;
-    background-color: transparent;
-    padding-inline: 50px;
-    border: 0;
-  }
-
-  .menu-item:focus {
-    box-shadow: 0 0 0 #fff !important;
-  }
-
-  .menu-item i {
-    cursor: pointer;
-    font-size: 20px;
-  }
-
-  .hidden-list__responsive {
-    transform: translateX(100%) !important;
-    width: 0 !important;
-  }
 }

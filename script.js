@@ -178,6 +178,11 @@ const menuEl = document.querySelector('.menu-item');
 const headerItemsList = document.querySelector('.hidden-list__responsive');
 const headerItems = document.querySelectorAll('.header-items');
 
-menuEl.addEventListener('click', function () {
+document.addEventListener('click', function () {
+  headerItemsList.classList.add('hidden-list__responsive');
+});
+
+menuEl.addEventListener('click', function (e) {
   headerItemsList.classList.toggle('hidden-list__responsive');
+  e.stopPropagation();
 });
